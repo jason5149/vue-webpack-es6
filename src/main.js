@@ -1,32 +1,23 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import app from './components/app';
+import routers from './route';
 
 Vue.config.debug = true;
 
+//  实例化模块
 Vue.use(VueRouter);
 
-new Vue(app);
+//  创建主模板
+var app = Vue.extend(require('./app.vue'));
 
-var App = Vue.extend({});
+//  实例化Router
+var router = new VueRouter({
+    hashbang: true,
+    history: false,
+    saveScrollPosition: true,
+    transitionOnLoad: true
+});
 
-var a = Vue.extend({
-    template: '<p>A Content</p>'
-})
+routers(router);
 
-var b = Vue.extend({
-    template: '<p>B Content</p>'
-})
-
-var router = new VueRouter();
-
-router.map({
-    '/a': {
-        component: a
-    },
-    '/b': {
-        component: b
-    }
-})
-
-router.start(App, '#app');
+router.start(app, '#app');
