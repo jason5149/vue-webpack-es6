@@ -17,14 +17,26 @@ module.exports = {
     },
 
     module: {
-        loaders: [
-            { test: /\.vue$/, loader: 'vue' },
-            { test: /\.js$/, loader: 'babel', exclude: /node_modules/ },
-            { test: /\.css$/, loader: 'style!css!autoprefixer' },
-            { test: /\.scss/, loader: 'style!css!sass?sourceMap' },
-            { test: /\.(png|jpg|gif)$/, loader: 'url-loader?limit=8192' },
-            { test: /\.(html|tpl)$/, loader: 'html-loader' }
-        ]
+        loaders: [{
+            test: /\.vue$/,
+            loader: 'vue'
+        }, {
+            test: /\.js$/,
+            loader: 'babel',
+            exclude: /node_modules/
+        }, {
+            test: /\.css$/,
+            loader: 'style!css!autoprefixer'
+        }, {
+            test: /\.scss/,
+            loader: 'style!css!sass?sourceMap'
+        }, {
+            test: /\.(png|jpg|gif)$/,
+            loader: 'url-loader?limit=8192'
+        }, {
+            test: /\.(html|tpl)$/,
+            loader: 'html-loader'
+        }]
     },
 
     vue: {
